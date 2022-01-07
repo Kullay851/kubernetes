@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: k8s-volume
+  name: pod-with-emptydir
 spec:
   containers:
     - image: alpine
@@ -14,14 +14,12 @@ spec:
       volumeMounts:
         - mountPath: /var/log
           name: logs-volume
-        - mountpath: /data
+        - mountPath: /data
           name: data-volume
-
   volumes:
     - name: logs-volume
       emptyDir: {}
     - name: data-volume
-      emptyDir: {}
-
+      emptyDir: {} 
 
     
