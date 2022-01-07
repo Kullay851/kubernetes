@@ -12,14 +12,15 @@ spec:
         - -c
         - sleep 1d
       volumeMounts:
-        - mountPath: /var/log
+        - hostPath: /var/log
           name: logs-volume
-        - mountPath: /data
-          name: data-volume
+
   volumes:
     - name: logs-volume
-      emptyDir: {}
-    - name: data-volume
-      emptyDir: {} 
+      hostPath:
+        path: /var/log
+        type: Directory
+        
+
 
     

@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-with-emptydir
+  name: pod-with-hostdir
 spec:
   containers:
     - image: alpine
@@ -14,12 +14,16 @@ spec:
       volumeMounts:
         - mountPath: /var/log
           name: logs-volume
-        - mountPath: /data
-          name: data-volume
+
   volumes:
     - name: logs-volume
-      emptyDir: {}
-    - name: data-volume
-      emptyDir: {} 
+      hostPath:
+        path: /var/log
+        type: Directory
+        
+
+
+    
+
 
     
